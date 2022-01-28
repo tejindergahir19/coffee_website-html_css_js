@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Website By Tejinder Singh</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Source+Serif+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+:root{
+    --green:#334110;
+    --brown:#4E3731;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    overflow:hidden;
+}
+
+header{
+    width:100%;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 35px;
+}
+
+header nav .leftitems{
+    display: flex;
+    align-items: center;
+}
+
+header nav .leftitems img{
+    width: 70px;
+}
+
+header nav .centeritems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .centeritems span a{
+    text-decoration:none;
+    text-transform: uppercase;
+    color:var(--brown);
+    font-weight: 600;
+    margin:6px 12px;
+    padding:0px;
+}
+
+header nav .centeritems span a:hover{
+    border-bottom:3px solid var(--brown);
+}
+
+header nav .centeritems #selected{
+    border-bottom:3px solid var(--brown);
+}
+
+header nav .rightitems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .rightitems a{
+    text-decoration:none;
+    text-transform: uppercase;
+    color:#000;
+    font-weight: 700;
+    margin:6px 12px;
+    padding:0px;
+}
+
+header nav .rightitems a:hover{
+    color:#017042;
+}
+
+.heading{
+    width:70%;
+    margin:auto;
+}
+
+.heading h1{
+    margin: 50px 0px;
+    width:100%;
+    text-align:center;
+    font-family: 'Source Serif Pro', serif;
+    font-size :4em;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+.heading h1 span{
+    color:var(--green);
+    font-family: 'Source Serif Pro', serif
+}
+
+.coffeemenu{
+    display:flex;
+    justify-content: space-evenly;/*Center For Coffee Tray*/
+    margin-top:50px;
+}
+
+.coffee{
+    width:500px;
+    background-color: white;
+}
+
+.coffee img{
+    display: block;
+    margin:auto;
+    width:320px;
+    border-radius: 50%;
+    box-shadow: 0px 60px 60px rgba(0, 0, 0, 0.5);
+}
+
+.details{
+    display:block;
+    margin:auto;
+    width:320px;
+    height:300px;
+    border-radius:26px;
+    position:relative;
+    background-color: rgba(255,255,255,0.7);
+    top:-15%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.details button{
+    text-align:center;
+    color:white;
+    font-weight: 600;
+    background-color: var(--brown);
+    text-transform: uppercase;
+    border-radius:8px;
+    border:none;
+    padding:10px;
+    position:relative;
+    left:115px;
+    top:-6.5%;
+}
+
+.coffee .details h3{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin:10px 0px;
+}
+
+.coffee .details .rating{
+    text-align: center;
+    font-size: 1.2em;
+    color:goldenrod;
+    cursor:pointer;
+    word-spacing: 0.25em;
+    margin-bottom:20px;
+}
+
+.coffee .details p{
+    text-align: center;
+    font-size: 2em;
+    color:green;
+}
+
+.price{
+    margin-top:27px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.quantity input[type=button]{
+    color:#000;
+    text-align: center;
+    width:25px;
+    height:25.7px;
+    border:none;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 1.05em;
+    cursor: pointer;
+}
+
+.quantity input[type=number]{
+    color:#000;
+    text-align: center;
+    width:30px;
+    height:25.5px;
+    border:none;
+    background-color: #fff;
+    font-weight: 700;
+    font-size: 1.05em;
+    cursor: pointer;
+}
+
+.quantity .minus{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.quantity .plus{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.quantity{
+    display:inline;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.coffee .cart button{
+    background-color: var(--green);
+    color:white;
+    font-size: 1.38em;
+    text-align:center;
+    cursor: pointer;
+    border:none;
+    width:55px;
+    height: 55px;
+    box-shadow: 4px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.coffee .cart button:hover{
+    background-color: black;
+}
+
+.cart{
+    position: relative;
+    bottom:-1%;
+    right:-40%;
+}
+
+
+.quantity{
+    position: relative;
+    bottom:-14%;
+    left:7%;
+}
+
+.customer-cart{
+    display: none;
+    position:absolute;
+    top:70px;
+    right:45px;
+    width:500px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.customer-cart .order{
+    margin:20px 20px;
+    display:flex;
+    align-items:center;
+}
+
+.customer-cart .order img{
+    width:70px;
+}
+
+.customer-cart .order span{
+    margin-left:15px;
+    margin-right:25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.customer-cart .order span b{
+    color:red;
+}
+
+.customer-cart .order i{
+    color:red;
+    font-size: 1.2em;
+    position:absolute;
+    right:28px;
+    cursor:pointer;
+}
+
+#total-bill{
+    margin:0px 5px;
+    color:red;
+}
+
+
+/* #coffee1{
+    position: absolute;
+    bottom:-15.5%;
+    left:3%;
+    transform: rotate(-30deg);
+}
+
+#coffee3{
+    position: absolute;
+    bottom:-15.5%;
+    right:3%;
+    transform: rotate(30deg);
+} */
+
+
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
+
+
+
+
+</style>
+</head>
+<body>
+<header>
+        <nav>
+            <div class="leftitems">
+                <img src="https://i.ibb.co/Z8F0zzr/logo.png" alt="logo">
+            </div>
+            <div class="centeritems">
+                <span><a href="#" id="selected">Coffee</a></span>
+                <span><a href="#">About Us</a></span>
+                <span><a href="#">Coffee House</a></span>
+                <span><a href="#">Season's Gifts</a></span>
+                <span><a href="#">Shop</a></span>
+                <span><a href="#">Contact Us</a></span>
+            </div>
+            <div class="rightitems">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#" id='btn-cart'><i class="fas fa-shopping-cart" ></i> <b id='total-bill'>$0.00</b></a>
+                <a href="#">Sign In</a>
+                <div class="customer-cart" id='customer-cart'></div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="heading">
+        <h1>A bad day with <span>coffee</span> is better than a good day without it.</h1>
+    </div>
+
+
+
+    <div class="coffeemenu">
+        <div class="coffee" id="coffee1">
+            <img src="https://i.ibb.co/8PKHYgP/cup1.png"  alt="coffeecup">
+            <div class="details">
+                <button>Must Try</button>
+                <h3>Arabica Coffee</h3>
+                <p class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <p class="price">$9.99</p>
+                <div class="quantity">
+                    <input type="button" value="-" class="minus" onclick="dec('c1')">
+                    <input type="number" step="1" min="1" max="100" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" id='c1'>
+                    <input type="button" value="+" class="plus" onclick="inc('c1')">
+                </div>
+                <div class="cart">
+                    <button onclick="addToCart('coffee1','c1')"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="coffee" id="coffee2">
+            <img src="https://i.ibb.co/rFm32r3/cup2.png" alt="coffeecup">
+            <div class="details">
+                <button>Must Try</button>
+                <h3>Coffee Americano</h3>
+                <p class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <p class="price">$12.49</p>
+                <div class="quantity">
+                    <input type="button" value="-" class="minus" onclick="dec('c2')">
+                    <input type="number" step="1" min="1" max="100" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" id='c2'>
+                    <input type="button" value="+" class="plus" onclick="inc('c2')">
+                </div>
+                <div class="cart">
+                    <button onclick="addToCart('coffee2','c2')"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="coffee" id="coffee3">
+            <img src="https://i.ibb.co/Yf7hfKN/cup3.png" alt="coffeecup">
+            <div class="details">
+                <button>Must try</button>
+                <h3>Mocha Coffee</h3>
+                <p class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <p class="price">$14.99</p>
+                <div class="quantity">
+                    <input type="button" value="-" class="minus" onclick="dec('c3')">
+                    <input type="number" step="1" min="1" max="100" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="" id='c3'>
+                    <input type="button" value="+" class="plus" onclick="inc('c3')">
+                </div>
+                <div class="cart" onclick="addToCart('coffee3','c3')">
+                    <button><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://kit.fontawesome.com/00a29dd499.js" crossorigin="anonymous"></script>
+<script>
+var totalBill = 0;
+let btnCart = document.getElementById('btn-cart');
+let custCart = document.getElementById('customer-cart');
+
+tj();
+
+function tj(){
+    let tj = localStorage.getItem('cart-items');
+    if(tj != null && tj != undefined){
+        custCart.innerHTML = tj;
+    }
+
+    tjlocalbill = localStorage.getItem('total-bill');
+    if(tjlocalbill != null && tjlocalbill != undefined){
+        let tjbill = document.getElementById('total-bill');
+        tjbill.innerText = '$'+ parseFloat(tjlocalbill).toFixed(2);
+        totalBill = parseFloat(tjlocalbill).toFixed(2);
+    }
+}
+
+btnCart.addEventListener('click',function(){
+    if(custCart.style.display=='block'){
+        btnCart.style.color = '#000';
+        custCart.style.display='none';
+    }else{
+        btnCart.style.color = '#017042';
+        custCart.style.display='block';
+    }
+});
+
+const dec = (coffee)=>{
+    let input = document.getElementById(coffee);
+    let tmp = input.value;
+    if(tmp>1){
+        input.value = tmp-1;
+    }else{
+        input.value = 1;
+    } 
+};
+
+const inc = (coffee)=>{
+    let input = document.getElementById(coffee);
+    let tmp = Number(input.value);
+    input.value = tmp+1;
+};
+
+const updateLocalStorage = (data)=>{
+    localStorage.setItem('cart-items',data);
+    localStorage.setItem('total-bill',totalBill);
+};
+
+const addToCart = (getCoffee,getQuantity)=>{
+    let orderId = Math.floor(Math.random()*1000000); 
+    let item = document.getElementById(getCoffee);
+    let quantity = document.getElementById(getQuantity).value;
+    let price = Number(item.getElementsByTagName('p')[1].innerText.slice(1,-1));
+    
+    html = `<div class="order" id='o${orderId}q${quantity}'>
+    <img src="${item.getElementsByTagName('img')[0].src}" alt="cup1">
+    <span>${quantity} x ${item.getElementsByTagName('h3')[0].innerText.slice(0,13)}...<b>$${parseFloat(price*Number(quantity)+0.09).toFixed(2)}</b></span>
+    <i class="fas fa-trash" onclick="removeFromCart('o${orderId}q${quantity}')"></i>
+</div>`;
+
+    let tmp = custCart.innerHTML;
+    custCart.innerHTML = tmp + html;
+
+    totalBill = totalBill+price*Number(quantity)+0.09;
+    let showTotalBill = document.getElementById('total-bill');
+    showTotalBill.innerText = '$'+ parseFloat(totalBill).toFixed(2);
+
+    alert("Item Added To Cart...");
+
+    document.getElementById(getQuantity).value = 1;
+
+    updateLocalStorage(String(custCart.innerHTML));
+};
+
+const removeFromCart = (order) => {
+    let orderItem = document.getElementById(order);
+    let price = Number(orderItem.querySelector('span b').innerText.slice(1,-1))+0.09;
+
+    totalBill = totalBill-price;
+    let showTotalBill = document.getElementById('total-bill');
+    showTotalBill.innerText = '$'+ parseFloat(totalBill).toFixed(2);
+    
+    orderItem.setAttribute("style","display:none");
+    updateLocalStorage(String(custCart.innerHTML));
+    alert("Item Deleted From Cart...");
+};
+</script>
+</body>
+</html>
